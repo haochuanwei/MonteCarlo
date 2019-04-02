@@ -10,7 +10,7 @@ class Distribution(object):
         
     def validate(self, dimension, densityFunction):
         assert type(dimension) is tuple
-        assert bool(densityFunction(np.random.random(dimension))+1e-8)
+        assert densityFunction(np.random.random(dimension)) >= 0.0
         
     def density(self, npArr):
         assert npArr.shape == self.dimension
